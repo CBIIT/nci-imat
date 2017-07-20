@@ -1,1 +1,71 @@
-jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeOutQuad",swing:function(g,f,j,i,h){return jQuery.easing[jQuery.easing.def](g,f,j,i,h)},easeInQuad:function(g,f,j,i,h){return i*(f/=h)*f+j},easeOutQuad:function(g,f,j,i,h){return -i*(f/=h)*(f-2)+j},easeInOutQuad:function(g,f,j,i,h){if((f/=h/2)<1){return i/2*f*f+j}return -i/2*(--f*(f-2)-1)+j},easeInCubic:function(g,f,j,i,h){return i*(f/=h)*f*f+j},easeOutCubic:function(g,f,j,i,h){return i*((f=f/h-1)*f*f+1)+j},easeInOutCubic:function(g,f,j,i,h){if((f/=h/2)<1){return i/2*f*f*f+j}return i/2*((f-=2)*f*f+2)+j},easeInQuart:function(g,f,j,i,h){return i*(f/=h)*f*f*f+j},easeOutQuart:function(g,f,j,i,h){return -i*((f=f/h-1)*f*f*f-1)+j},easeInOutQuart:function(g,f,j,i,h){if((f/=h/2)<1){return i/2*f*f*f*f+j}return -i/2*((f-=2)*f*f*f-2)+j},easeInQuint:function(g,f,j,i,h){return i*(f/=h)*f*f*f*f+j},easeOutQuint:function(g,f,j,i,h){return i*((f=f/h-1)*f*f*f*f+1)+j},easeInOutQuint:function(g,f,j,i,h){if((f/=h/2)<1){return i/2*f*f*f*f*f+j}return i/2*((f-=2)*f*f*f*f+2)+j},easeInSine:function(g,f,j,i,h){return -i*Math.cos(f/h*(Math.PI/2))+i+j},easeOutSine:function(g,f,j,i,h){return i*Math.sin(f/h*(Math.PI/2))+j},easeInOutSine:function(g,f,j,i,h){return -i/2*(Math.cos(Math.PI*f/h)-1)+j},easeInExpo:function(g,f,j,i,h){return f==0?j:i*Math.pow(2,10*(f/h-1))+j},easeOutExpo:function(g,f,j,i,h){return f==h?j+i:i*(-Math.pow(2,-10*f/h)+1)+j},easeInOutExpo:function(g,f,j,i,h){if(f==0){return j}if(f==h){return j+i}if((f/=h/2)<1){return i/2*Math.pow(2,10*(f-1))+j}return i/2*(-Math.pow(2,-10*--f)+2)+j},easeInCirc:function(g,f,j,i,h){return -i*(Math.sqrt(1-(f/=h)*f)-1)+j},easeOutCirc:function(g,f,j,i,h){return i*Math.sqrt(1-(f=f/h-1)*f)+j},easeInOutCirc:function(g,f,j,i,h){if((f/=h/2)<1){return -i/2*(Math.sqrt(1-f*f)-1)+j}return i/2*(Math.sqrt(1-(f-=2)*f)+1)+j},easeInElastic:function(j,i,p,o,n){var m=1.70158;var l=0;var k=o;if(i==0){return p}if((i/=n)==1){return p+o}if(!l){l=n*0.3}if(k<Math.abs(o)){k=o;var m=l/4}else{var m=l/(2*Math.PI)*Math.asin(o/k)}return -(k*Math.pow(2,10*(i-=1))*Math.sin((i*n-m)*2*Math.PI/l))+p},easeOutElastic:function(j,i,p,o,n){var m=1.70158;var l=0;var k=o;if(i==0){return p}if((i/=n)==1){return p+o}if(!l){l=n*0.3}if(k<Math.abs(o)){k=o;var m=l/4}else{var m=l/(2*Math.PI)*Math.asin(o/k)}return k*Math.pow(2,-10*i)*Math.sin((i*n-m)*2*Math.PI/l)+o+p},easeInOutElastic:function(j,i,p,o,n){var m=1.70158;var l=0;var k=o;if(i==0){return p}if((i/=n/2)==2){return p+o}if(!l){l=n*0.3*1.5}if(k<Math.abs(o)){k=o;var m=l/4}else{var m=l/(2*Math.PI)*Math.asin(o/k)}if(i<1){return -0.5*k*Math.pow(2,10*(i-=1))*Math.sin((i*n-m)*2*Math.PI/l)+p}return k*Math.pow(2,-10*(i-=1))*Math.sin((i*n-m)*2*Math.PI/l)*0.5+o+p},easeInBack:function(h,g,l,k,j,i){if(i==undefined){i=1.70158}return k*(g/=j)*g*((i+1)*g-i)+l},easeOutBack:function(h,g,l,k,j,i){if(i==undefined){i=1.70158}return k*((g=g/j-1)*g*((i+1)*g+i)+1)+l},easeInOutBack:function(h,g,l,k,j,i){if(i==undefined){i=1.70158}if((g/=j/2)<1){return k/2*g*g*(((i*=1.525)+1)*g-i)+l}return k/2*((g-=2)*g*(((i*=1.525)+1)*g+i)+2)+l},easeInBounce:function(g,f,j,i,h){return i-jQuery.easing.easeOutBounce(g,h-f,0,i,h)+j},easeOutBounce:function(g,f,j,i,h){if((f/=h)<1/2.75){return i*7.5625*f*f+j}else{if(f<2/2.75){return i*(7.5625*(f-=1.5/2.75)*f+0.75)+j}else{if(f<2.5/2.75){return i*(7.5625*(f-=2.25/2.75)*f+0.9375)+j}else{return i*(7.5625*(f-=2.625/2.75)*f+0.984375)+j}}}},easeInOutBounce:function(g,f,j,i,h){if(f<h/2){return jQuery.easing.easeInBounce(g,f*2,0,i,h)*0.5+j}return jQuery.easing.easeOutBounce(g,f*2-h,0,i,h)*0.5+i*0.5+j}});
+/*
+ * jQuery Easing v1.3 - http://gsgd.co.uk/sandbox/jquery/easing/
+ *
+ * Uses the built in easing capabilities added In jQuery 1.1
+ * to offer multiple easing options
+ *
+ * TERMS OF USE - jQuery Easing
+ * 
+ * Open source under the BSD License. 
+ * 
+ * Copyright © 2008 George McGinley Smith
+ * All rights reserved.
+ * 
+ * Redistribution and use in source and binary forms, with or without modification, 
+ * are permitted provided that the following conditions are met:
+ * 
+ * Redistributions of source code must retain the above copyright notice, this list of 
+ * conditions and the following disclaimer.
+ * Redistributions in binary form must reproduce the above copyright notice, this list 
+ * of conditions and the following disclaimer in the documentation and/or other materials 
+ * provided with the distribution.
+ * 
+ * Neither the name of the author nor the names of contributors may be used to endorse 
+ * or promote products derived from this software without specific prior written permission.
+ * 
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY 
+ * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+ *  COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+ *  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
+ *  GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED 
+ * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED 
+ * OF THE POSSIBILITY OF SUCH DAMAGE. 
+ *
+*/
+
+// t: current time, b: begInnIng value, c: change In value, d: duration
+jQuery.easing["jswing"]=jQuery.easing["swing"];jQuery.extend(jQuery.easing,{def:"easeOutQuad",swing:function(a,b,c,d,e){return jQuery.easing[jQuery.easing.def](a,b,c,d,e)},easeInQuad:function(a,b,c,d,e){return d*(b/=e)*b+c},easeOutQuad:function(a,b,c,d,e){return-d*(b/=e)*(b-2)+c},easeInOutQuad:function(a,b,c,d,e){if((b/=e/2)<1)return d/2*b*b+c;return-d/2*(--b*(b-2)-1)+c},easeInCubic:function(a,b,c,d,e){return d*(b/=e)*b*b+c},easeOutCubic:function(a,b,c,d,e){return d*((b=b/e-1)*b*b+1)+c},easeInOutCubic:function(a,b,c,d,e){if((b/=e/2)<1)return d/2*b*b*b+c;return d/2*((b-=2)*b*b+2)+c},easeInQuart:function(a,b,c,d,e){return d*(b/=e)*b*b*b+c},easeOutQuart:function(a,b,c,d,e){return-d*((b=b/e-1)*b*b*b-1)+c},easeInOutQuart:function(a,b,c,d,e){if((b/=e/2)<1)return d/2*b*b*b*b+c;return-d/2*((b-=2)*b*b*b-2)+c},easeInQuint:function(a,b,c,d,e){return d*(b/=e)*b*b*b*b+c},easeOutQuint:function(a,b,c,d,e){return d*((b=b/e-1)*b*b*b*b+1)+c},easeInOutQuint:function(a,b,c,d,e){if((b/=e/2)<1)return d/2*b*b*b*b*b+c;return d/2*((b-=2)*b*b*b*b+2)+c},easeInSine:function(a,b,c,d,e){return-d*Math.cos(b/e*(Math.PI/2))+d+c},easeOutSine:function(a,b,c,d,e){return d*Math.sin(b/e*(Math.PI/2))+c},easeInOutSine:function(a,b,c,d,e){return-d/2*(Math.cos(Math.PI*b/e)-1)+c},easeInExpo:function(a,b,c,d,e){return b==0?c:d*Math.pow(2,10*(b/e-1))+c},easeOutExpo:function(a,b,c,d,e){return b==e?c+d:d*(-Math.pow(2,-10*b/e)+1)+c},easeInOutExpo:function(a,b,c,d,e){if(b==0)return c;if(b==e)return c+d;if((b/=e/2)<1)return d/2*Math.pow(2,10*(b-1))+c;return d/2*(-Math.pow(2,-10*--b)+2)+c},easeInCirc:function(a,b,c,d,e){return-d*(Math.sqrt(1-(b/=e)*b)-1)+c},easeOutCirc:function(a,b,c,d,e){return d*Math.sqrt(1-(b=b/e-1)*b)+c},easeInOutCirc:function(a,b,c,d,e){if((b/=e/2)<1)return-d/2*(Math.sqrt(1-b*b)-1)+c;return d/2*(Math.sqrt(1-(b-=2)*b)+1)+c},easeInElastic:function(a,b,c,d,e){var f=1.70158;var g=0;var h=d;if(b==0)return c;if((b/=e)==1)return c+d;if(!g)g=e*.3;if(h<Math.abs(d)){h=d;var f=g/4}else var f=g/(2*Math.PI)*Math.asin(d/h);return-(h*Math.pow(2,10*(b-=1))*Math.sin((b*e-f)*2*Math.PI/g))+c},easeOutElastic:function(a,b,c,d,e){var f=1.70158;var g=0;var h=d;if(b==0)return c;if((b/=e)==1)return c+d;if(!g)g=e*.3;if(h<Math.abs(d)){h=d;var f=g/4}else var f=g/(2*Math.PI)*Math.asin(d/h);return h*Math.pow(2,-10*b)*Math.sin((b*e-f)*2*Math.PI/g)+d+c},easeInOutElastic:function(a,b,c,d,e){var f=1.70158;var g=0;var h=d;if(b==0)return c;if((b/=e/2)==2)return c+d;if(!g)g=e*.3*1.5;if(h<Math.abs(d)){h=d;var f=g/4}else var f=g/(2*Math.PI)*Math.asin(d/h);if(b<1)return-.5*h*Math.pow(2,10*(b-=1))*Math.sin((b*e-f)*2*Math.PI/g)+c;return h*Math.pow(2,-10*(b-=1))*Math.sin((b*e-f)*2*Math.PI/g)*.5+d+c},easeInBack:function(a,b,c,d,e,f){if(f==undefined)f=1.70158;return d*(b/=e)*b*((f+1)*b-f)+c},easeOutBack:function(a,b,c,d,e,f){if(f==undefined)f=1.70158;return d*((b=b/e-1)*b*((f+1)*b+f)+1)+c},easeInOutBack:function(a,b,c,d,e,f){if(f==undefined)f=1.70158;if((b/=e/2)<1)return d/2*b*b*(((f*=1.525)+1)*b-f)+c;return d/2*((b-=2)*b*(((f*=1.525)+1)*b+f)+2)+c},easeInBounce:function(a,b,c,d,e){return d-jQuery.easing.easeOutBounce(a,e-b,0,d,e)+c},easeOutBounce:function(a,b,c,d,e){if((b/=e)<1/2.75){return d*7.5625*b*b+c}else if(b<2/2.75){return d*(7.5625*(b-=1.5/2.75)*b+.75)+c}else if(b<2.5/2.75){return d*(7.5625*(b-=2.25/2.75)*b+.9375)+c}else{return d*(7.5625*(b-=2.625/2.75)*b+.984375)+c}},easeInOutBounce:function(a,b,c,d,e){if(b<e/2)return jQuery.easing.easeInBounce(a,b*2,0,d,e)*.5+c;return jQuery.easing.easeOutBounce(a,b*2-e,0,d,e)*.5+d*.5+c}})
+/*
+ *
+ * TERMS OF USE - EASING EQUATIONS
+ * 
+ * Open source under the BSD License. 
+ * 
+ * Copyright © 2001 Robert Penner
+ * All rights reserved.
+ * 
+ * Redistribution and use in source and binary forms, with or without modification, 
+ * are permitted provided that the following conditions are met:
+ * 
+ * Redistributions of source code must retain the above copyright notice, this list of 
+ * conditions and the following disclaimer.
+ * Redistributions in binary form must reproduce the above copyright notice, this list 
+ * of conditions and the following disclaimer in the documentation and/or other materials 
+ * provided with the distribution.
+ * 
+ * Neither the name of the author nor the names of contributors may be used to endorse 
+ * or promote products derived from this software without specific prior written permission.
+ * 
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY 
+ * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+ *  COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+ *  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
+ *  GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED 
+ * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED 
+ * OF THE POSSIBILITY OF SUCH DAMAGE. 
+ *
+ */

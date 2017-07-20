@@ -46,6 +46,15 @@ function md_slider_manage($slid, $option = 'configure') {
     '#tree' => TRUE,
   );
 
+  $url_settings = array(
+    'get_image' => url('admin/structure/md-slider/get-background-image', array('absolute' => TRUE)),
+    'get_video_info' => url('admin/structure/md-slider/get-video-info', array('absolute' => TRUE)),
+    'get_video_settings' => url('admin/structure/md-slider/video-setting', array('absolute' => TRUE)),
+    'delete_slide' => url('admin/structure/md-slider/slide/delete', array('absolute' => TRUE)),
+  );
+
+  drupal_add_js(array('slider' => $url_settings), 'setting');
+
   $slider_tabs = array();
 
   if ($option == 'edit') {
@@ -1013,6 +1022,10 @@ function md_slider_import_export_form($form, &$form_state) {
     '#value' => t('Import'),
   );
 
+  $url_settings = array(
+    'export' => url('admin/structure/md-slider/export-data', array('absolute' => TRUE))
+  );
+  drupal_add_js(array('slider' => $url_settings), 'setting');
   drupal_add_js(drupal_get_path('module', 'md_slider') . '/js/md-slider-export.js');
 
   return $form;

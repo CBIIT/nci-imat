@@ -1,1 +1,26 @@
-(function(a){Drupal.behaviors.export_import_cuteslider={attach:function(b,c){a("input[name=export-button]",b).click(function(){var d=new Array();a("#edit-sliders input:checked",b).each(function(){d.push(a(this).val())});if(d.length==0){alert("You must choose sliders to export.")}else{a.post(c.basePath+c.pathPrefix+"?q=admin/structure/md-slider/export-data",{slids:d.join(",")},function(e){a("#edit-export-data",b).val(e)})}})}}})(jQuery);
+/**
+ * @file
+ * @author Duynv
+ * Date: 4/9/13
+ */
+(function($) {
+    Drupal.behaviors.export_import_cuteslider = {
+        attach: function(context, settings) {
+            $('input[name=export-button]', context).click(function() {
+                var selected = new Array();
+                $('#edit-sliders input:checked', context).each(function() {
+                    selected.push($(this).val());
+                });
+
+                if (selected.length == 0) {
+                    alert('You must choose sliders to export.');
+                }
+                else {
+                    $.post( Drupal.settings.slider.export, {slids: selected.join(',')}, function(response) {
+                        $('#edit-export-data', context).val(response);
+                    });
+                }
+            });
+        }
+    }
+})(jQuery);

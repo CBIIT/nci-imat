@@ -1,1 +1,34 @@
-(function(a){Drupal.behaviors.md_slider_field={attach:function(b,c){var d;a(".md-slider-field-select",b).one("focus",function(){var f=a(".md-slider-field-select",b).not(this),e=a(this);f.each(function(){if(a(this).val()!=-1){a("option[value="+a(this).val()+"]",e).hide()}});d=a(this).val()}).change(function(){var e=a(this).val(),e=a(".fake-select-slider").find("option[value="+e+"]").data("sliderid");if(e!=-1){a(".configure-link",a(this).next()).attr("href",c.basePath+c.pathPrefix+"?q=admin/structure/md-slider/"+e+"/configure");a(".edit-link",a(this).next()).attr("href",c.basePath+c.pathPrefix+"?q=admin/structure/md-slider/"+e+"/edit");a(".field-suffix",a(this).parent()).show()}else{a(".field-suffix",a(this).parent()).hide()}}).trigger("change")}}})(jQuery);
+/**
+ * File: md-slider-field-configure.js
+ * Author: MegaDrupal
+ */
+(function($) {
+    Drupal.behaviors.md_slider_field = {
+        attach: function(context, settings) {
+            var previous;
+
+            $(".md-slider-field-select", context).one("focus", function() {
+                var $others = $(".md-slider-field-select", context).not(this),
+                    $current = $(this);
+
+                $others.each(function() {
+                    if ($(this).val() != -1)
+                        $("option[value=" + $(this).val() + "]", $current).hide();
+                });
+
+                previous = $(this).val();
+            }).change(function() {
+                var sliderId = $(this).val(),
+                    sliderId = $(".fake-select-slider").find("option[value=" + sliderId + "]").data('sliderid');
+                if (sliderId != -1) {
+                    $(".configure-link", $(this).next()).attr("href", settings.basePath + settings.pathPrefix + "?q=admin/structure/md-slider/"+sliderId+"/configure");
+                    $(".edit-link", $(this).next()).attr("href", settings.basePath + settings.pathPrefix + "?q=admin/structure/md-slider/"+sliderId+"/edit");
+                    $(".field-suffix", $(this).parent()).show();
+                }
+                else {
+                    $(".field-suffix", $(this).parent()).hide();
+                }
+            }).trigger("change");
+        }
+    }
+})(jQuery);

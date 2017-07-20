@@ -1,1 +1,15 @@
-(function(a){a(document).ready(function(){var b=new MdSliderPanel();b.init();a("#md-slider-edit-form").submit(function(){a("#edit-slider-data-save").val(a.objectToString(b.getSliderData()))})})})(jQuery);
+/*------------------------------------------------------------------------
+# MD Slider - March 18, 2013
+# ------------------------------------------------------------------------
+# Websites:  http://www.megadrupal.com -  Email: info@megadrupal.com
+--------------------------------------------------------------------------*/
+
+(function($) {
+    $(document).ready(function() {
+        var mdSliderPanel = new MdSliderPanel();
+        mdSliderPanel.init();
+        $('#md-slider-edit-form').submit(function() {
+            $("#edit-slider-data-save").val($.objectToString(mdSliderPanel.getSliderData()));
+        });
+    });
+})(jQuery);

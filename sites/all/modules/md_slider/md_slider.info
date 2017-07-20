@@ -5,7 +5,8 @@ package = MegaDrupal
 files[] = md_slider.module
 dependencies[] = media
 
-project status url = http://updates.megadrupal.com/release-history
-version = "7.x-2.19"
-core = "7.x"
+; Information added by megadrupal.com packaging script on 2016-06-29
+project status url = http://megadrupal.com/fserver/md_slider/7.x
+version = "7.x-2.20"
 project = "md_slider"
+datestamp = "1467172202"
